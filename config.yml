@@ -1,0 +1,14 @@
+config:
+  node1:
+    - eth0: "192.168.0.1"
+  node4:
+    !include node4.yml
+  node5: &ref_node5
+    - &ref_node5_ips
+      eth0: "192.168.1.1"
+      eth1: "192.168.1.2"
+      eth2: "192.168.1.3"
+  node6:
+    - eth0: "172.31.0.1"
+      <<: *ref_node5_ips
+
